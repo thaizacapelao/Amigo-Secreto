@@ -2,24 +2,24 @@ let amigos = [];
 
 function adicionar() {
   let amigo = document.getElementById('nome-amigo');
+  let nomeAmigo = amigo.value.toUpperCase(); // Converter o nome para maiúsculo
 
-  if (amigo.value == '') {
+  if (nomeAmigo == '') {
     alert("Digite um nome válido!!");
     return;
   }
 
-  if(amigos.includes(amigo.value)) {
+  if(amigos.includes(nomeAmigo)) {
     alert("O nome já foi adicionado!");
     return;
   }
 
-
   let lista = document.getElementById("lista-amigos");
-  amigos.push(amigo.value);
+  amigos.push(nomeAmigo); // Adicionar o nome em maiúsculo ao array
   if (lista.textContent == "") {
-    lista.textContent = amigo.value;
+    lista.textContent = nomeAmigo;
   } else {
-    lista.textContent += ", " + amigo.value;
+    lista.textContent += ", " + nomeAmigo;
   }
   amigo.value = "";
 }
